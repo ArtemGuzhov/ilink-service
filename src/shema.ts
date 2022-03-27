@@ -29,13 +29,8 @@ const typeDefs = gql`
 
 const resolvers: IResolvers = {
   Query: {
-    categories: (_, __, { dataSources }) => {
-      console.log("categories");
-
-      console.log(dataSources.chuckApi.context);
-
-      return dataSources.chuckApi.getAllCategories();
-    },
+    categories: (_, __, { dataSources }) =>
+      dataSources.chuckApi.getAllCategories(),
     categoryJoke: (_, { category }, { dataSources }) =>
       dataSources.chuckApi.getCategoryJoke(category),
     queryJoke: (_, { query }, { dataSources }) =>

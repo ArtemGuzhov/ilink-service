@@ -10,8 +10,6 @@ export class ChuckAPI extends RESTDataSource {
   }
 
   async getAllCategories() {
-    console.log("getAllCategories");
-
     const data = await this.get(`jokes/categories`);
 
     return camelCaseKeys(data, { deep: true });
